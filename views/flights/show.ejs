@@ -1,0 +1,96 @@
+<%- include('../partials/header') %>
+
+<section>
+    <div>
+        <div>
+            <div class="content">
+                <div>Airline:
+                    <%= flight.airline %>
+                </div>
+            <br>
+                <div>Airport:
+                    <%= flight.airport %>
+                </div>
+            <br>
+                <div>Flight Number:
+                    <%= flight.flightNo %>
+                </div>
+            <br>
+                <div>Departure:
+                    <%= flight.departs %>
+                </div>
+            </div>
+            <br>
+                <div class="destination-container">
+                <div class="destination-label">
+                    <h3>Destination:</h3>
+                </div>
+                <div>
+                    <% flight.destinations.forEach(destination => { %>
+                        <div>
+                            Airport: <%= destination.airport %>
+                            <br><br>
+                            Arrival: <%= destination.arrival %>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<h3 class="form-bottom">Add Destination</h3>
+<div class="table-container">
+    <form action="/flights/<%= flight._id %>/destinations" method="POST">
+        <label>Airline:
+            <select name="airline">
+                <option value="American">American</option>
+                <option value="Southwest">Southwest</option>
+                <option value="United">United</option>
+                <option value="Spirit">Spirit</option>
+                <option value="Frontier">Frontier</option>
+            </select>
+        </label>
+        <label>Airport:
+            <select name="airport">
+                <option value="AUS">AUS</option>
+                <option value="DFW">DFW</option>
+                <option value="DEN" selected>DEN</option>
+                <option value="LAX">LAX</option>
+                <option value="SAN">SAN</option>
+                <option value="GEG">GEG</option>
+                <option value="SEA">SEA</option>
+            </select>
+        </label>
+        <label for="arrival">Arrival Date/Time:</label>
+        <input type="datetime-local" name="arrival" id="arrival" required>
+        <button type="submit" class="destination-button">Add Destination</button>
+    </div>
+</form>
+
+<h2>Tickets:</h2>
+<br>
+<div class="ticket-list">
+    <ul>
+        <% tickets.forEach(tickets => { %>
+            <li>Seat: <%= tickets.seat %> - Price: <%= tickets.price %></li>
+        <% }); %>
+    </ul>
+</div>
+<br>
+
+<form action="/flights/<%= flight._id %>/tickets" name="ticketsId" method="POST">
+    <div class="content">
+    <label for="seat" class="ticket-contents">Seat Number:</label>
+    <input type="text" id="seat" name="seat" pattern="[A-F][1-9]\d?" required>
+    <br>
+    <label for="price" class="ticket-contents">Price:</label>
+    <input type="number" id="price" name="price" required>
+    <br>
+    <button type="submit" class="submit-ticket">Submit Ticket</button>
+    </div>
+</form>
+
+
+
+<%- include('../partials/footer') %>
