@@ -5,19 +5,70 @@
   color: #424748;
 }
 
-body {
+body, h1, h2, h3, p, ul, li, form, label, input, select, button {
   margin: 0;
-  height: 100vh;
-  display: grid;
-  grid-template-rows: 50px 1fr;
-  grid-template-areas: 
-    "nav"
-    "main"
+  padding: 0;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
 }
 
+h2 {
+  font-size: 28px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+form {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.submit-container {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+select, input[type="number"], input[type="datetime-local"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
 body > nav {
   grid-area: nav;
-  background-color: #0cadd5;
+  background-color: #a48fba;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -30,20 +81,6 @@ nav > img {
   object-fit: contain;
   margin-right: auto;
   
-}
-
-body > main {
-  grid-area: main;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #E8ECEB;
-  padding: 20px;
-  overflow-y: scroll;
-}
-
-body > main h1:first-child {
-  margin-bottom: 50px;
 }
 
 nav > a {
@@ -63,33 +100,79 @@ nav > a.active {
   cursor: default;
 }
 
-#new-form {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(2, minmax(auto, 22rem));
+h2 {
+  font-size: 24px;
+  margin: 20px 0;
 }
 
-#new-form *,
-#add-review-form *,
-#add-performer-form * {
-  font-size: 20px;
-  padding: 5px;
+.table-container {
+  border: 1px solid #ddd;
+  padding: 20px;
   border-radius: 5px;
-}
-
-#new-form input[type="submit"] {
-  grid-column: span 2;
-  width: 10rem;
-  margin-left: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 table {
-  font-size: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-top: 15px;
 }
 
-table thead th {
-  padding: 5px;
-  border-bottom: 2px solid #424748;
+th {
+  background-color: #f2f2f2;
+  border-bottom: 2px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  font-weight: bold;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.past-departure {
+  background-color: #ffe6e6;
+}
+
+.view-details {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.view-details:hover {
+  text-decoration: underline;
 }
 
 
+
+/* Center the carousel content horizontally */
+#myCarousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Set the carousel height to fit the screen */
+}
+
+/* Center the carousel images vertically */
+.carousel-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Ensure images take up full carousel height */
+}
+
+/* Make images cover the full carousel width */
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
