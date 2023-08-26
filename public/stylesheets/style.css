@@ -154,23 +154,20 @@ tr:nth-child(even) {
 
 
 
-/* Center the carousel content horizontally */
 #myCarousel {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Set the carousel height to fit the screen */
+  height: 100vh;
 }
 
-/* Center the carousel images vertically */
 .carousel-inner {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%; /* Ensure images take up full carousel height */
+  height: 100%; 
 }
 
-/* Make images cover the full carousel width */
 .carousel-item img {
   width: 100%;
   height: auto;
